@@ -1,0 +1,437 @@
+Loading vocab...
+token_vocab: 4521, post_vocab: 160, pos_vocab: 46, dep_vocab: 35, pol_vocab: 3
+Loading pretrained word emb...
+Loading 4340/4521 words from vocab...
+-----------  Configuration Arguments -----------
+alpha: 1.0
+att_dropout: 0
+attn_heads: 10
+batch_size: 32
+beta: 1.0
+bidirect: True
+cross_val_fold: 10
+data_dir: dataset/Biaffine/glove/Restaurants
+dep_dim: 30
+dep_size: 35
+direct: False
+emb_dim: 300
+exp_id: Biaffine/glove/Restaurants/RGAT/6layer-10head-avg-None
+glove_dir: /mnt/data2/xfbai/data/embeddings/glove
+hidden_dim: 50
+input_dropout: 0.7
+layer_dropout: 0
+log: logs.txt
+log_step: 20
+loop: True
+lower: True
+lr: 0.01
+model: RGAT
+num_class: 3
+num_epoch: 30
+num_layers: 6
+optim: adamax
+output_merge: None
+pooling: avg
+pos_dim: 30
+pos_size: 46
+post_dim: 30
+post_size: 160
+rnn_dropout: 0.1
+rnn_hidden: 50
+rnn_layers: 1
+save_dir: saved_models
+seed: 14
+shuffle: True
+tok_size: 4521
+tune: False
+vocab_dir: dataset/Biaffine/glove/Restaurants
+------------------------------------------------
+3608 instances loaded from dataset/Biaffine/glove/Restaurants/train.json
+113 batches created for dataset/Biaffine/glove/Restaurants/train.json
+1119 instances loaded from dataset/Biaffine/glove/Restaurants/test.json
+35 batches created for dataset/Biaffine/glove/Restaurants/test.json
+/mnt/data2/xfbai/Anaconda/envs/py36torch1.2/lib/python3.6/site-packages/torch/nn/modules/rnn.py:51: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.1 and num_layers=1
+  "num_layers={}".format(dropout, num_layers))
+(1903453, 539770, 1363683)
+RGATABSA(
+  (RGAT_enc): RGATModel(
+    (emb): Embedding(4521, 300, padding_idx=0)
+    (pos_emb): Embedding(46, 30, padding_idx=0)
+    (post_emb): Embedding(160, 30, padding_idx=0)
+    (dep_emb): Embedding(35, 30, padding_idx=0)
+    (transformer_encoder): Transformer(
+      (emb): Embedding(4521, 300, padding_idx=0)
+      (pos_emb): Embedding(46, 30, padding_idx=0)
+      (post_emb): Embedding(160, 30, padding_idx=0)
+      (dep_emb): Embedding(35, 30, padding_idx=0)
+      (rnn): LSTM(360, 50, batch_first=True, dropout=0.1, bidirectional=True)
+      (rnn_drop): Dropout(p=0.1, inplace=False)
+      (in_drop): Dropout(p=0.7, inplace=False)
+      (SAN): STransformerEncoder(
+        (transformer): ModuleList(
+          (0): TransformerEncoderLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (1): TransformerEncoderLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (2): TransformerEncoderLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (3): TransformerEncoderLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (4): TransformerEncoderLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (5): TransformerEncoderLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+        )
+        (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+      )
+      (out_map): Linear(in_features=100, out_features=50, bias=True)
+    )
+  )
+  (classifier): Linear(in_features=50, out_features=3, bias=True)
+)
+Training Set: 113
+Valid/Test Set: 35
+Epoch 1------------------------------------------------------------
+19/113 train_loss: 1.047034, train_acc: 58.437500
+39/113 train_loss: 1.000554, train_acc: 59.296875
+59/113 train_loss: 1.001152, train_acc: 58.541667
+79/113 train_loss: 0.985207, train_acc: 59.218750
+99/113 train_loss: 0.980778, train_acc: 59.125000
+End of 1 train_loss: 0.9769, train_acc: 59.1630, val_loss: 0.8781, val_acc: 64.9309, f1_score: 0.2625
+new best model saved.
+Epoch 2------------------------------------------------------------
+19/113 train_loss: 0.899955, train_acc: 62.968750
+39/113 train_loss: 0.900044, train_acc: 61.640625
+59/113 train_loss: 0.908112, train_acc: 60.781250
+79/113 train_loss: 0.884315, train_acc: 61.679688
+99/113 train_loss: 0.862003, train_acc: 62.062500
+End of 2 train_loss: 0.8521, train_acc: 62.5092, val_loss: 0.6522, val_acc: 73.8854, f1_score: 0.5804
+new best model saved.
+Epoch 3------------------------------------------------------------
+19/113 train_loss: 0.748517, train_acc: 67.031250
+39/113 train_loss: 0.755812, train_acc: 66.640625
+59/113 train_loss: 0.769223, train_acc: 66.354167
+79/113 train_loss: 0.760034, train_acc: 66.562500
+99/113 train_loss: 0.743984, train_acc: 67.406250
+End of 3 train_loss: 0.7396, train_acc: 67.8282, val_loss: 0.5752, val_acc: 76.8347, f1_score: 0.6481
+new best model saved.
+Epoch 4------------------------------------------------------------
+19/113 train_loss: 0.679981, train_acc: 70.468750
+39/113 train_loss: 0.692118, train_acc: 69.531250
+59/113 train_loss: 0.709991, train_acc: 69.218750
+79/113 train_loss: 0.704629, train_acc: 69.218750
+99/113 train_loss: 0.693262, train_acc: 70.218750
+End of 4 train_loss: 0.6885, train_acc: 70.4093, val_loss: 0.5899, val_acc: 76.9240, f1_score: 0.6609
+new best model saved.
+Epoch 5------------------------------------------------------------
+19/113 train_loss: 0.663419, train_acc: 71.093750
+39/113 train_loss: 0.684296, train_acc: 70.390625
+59/113 train_loss: 0.688743, train_acc: 70.989583
+79/113 train_loss: 0.679957, train_acc: 70.976562
+99/113 train_loss: 0.669943, train_acc: 71.812500
+End of 5 train_loss: 0.6685, train_acc: 71.6906, val_loss: 0.5564, val_acc: 77.4683, f1_score: 0.6779
+new best model saved.
+Epoch 6------------------------------------------------------------
+19/113 train_loss: 0.627164, train_acc: 72.031250
+39/113 train_loss: 0.644791, train_acc: 72.343750
+59/113 train_loss: 0.654529, train_acc: 72.031250
+79/113 train_loss: 0.647719, train_acc: 72.460938
+99/113 train_loss: 0.644077, train_acc: 72.906250
+End of 6 train_loss: 0.6409, train_acc: 72.9628, val_loss: 0.5395, val_acc: 78.1797, f1_score: 0.6767
+new best model saved.
+Epoch 7------------------------------------------------------------
+19/113 train_loss: 0.594904, train_acc: 75.156250
+39/113 train_loss: 0.635677, train_acc: 72.968750
+59/113 train_loss: 0.647449, train_acc: 72.500000
+79/113 train_loss: 0.637076, train_acc: 73.203125
+99/113 train_loss: 0.630421, train_acc: 73.468750
+End of 7 train_loss: 0.6268, train_acc: 73.7924, val_loss: 0.5317, val_acc: 80.0576, f1_score: 0.7097
+new best model saved.
+Epoch 8------------------------------------------------------------
+19/113 train_loss: 0.608779, train_acc: 73.125000
+39/113 train_loss: 0.628726, train_acc: 72.578125
+59/113 train_loss: 0.631603, train_acc: 72.343750
+79/113 train_loss: 0.618016, train_acc: 73.828125
+99/113 train_loss: 0.613647, train_acc: 73.968750
+End of 8 train_loss: 0.6117, train_acc: 73.9860, val_loss: 0.5052, val_acc: 81.0426, f1_score: 0.7314
+new best model saved.
+Epoch 9------------------------------------------------------------
+19/113 train_loss: 0.592665, train_acc: 74.062500
+39/113 train_loss: 0.613732, train_acc: 73.515625
+59/113 train_loss: 0.616202, train_acc: 73.593750
+79/113 train_loss: 0.607248, train_acc: 73.671875
+99/113 train_loss: 0.607899, train_acc: 73.843750
+End of 9 train_loss: 0.6030, train_acc: 74.1243, val_loss: 0.5198, val_acc: 80.8554, f1_score: 0.7225
+Epoch 10------------------------------------------------------------
+19/113 train_loss: 0.566829, train_acc: 75.625000
+39/113 train_loss: 0.595011, train_acc: 74.687500
+59/113 train_loss: 0.600055, train_acc: 74.531250
+79/113 train_loss: 0.592515, train_acc: 75.000000
+99/113 train_loss: 0.578901, train_acc: 75.593750
+End of 10 train_loss: 0.5764, train_acc: 75.6545, val_loss: 0.5067, val_acc: 81.0397, f1_score: 0.7262
+Epoch 11------------------------------------------------------------
+19/113 train_loss: 0.556007, train_acc: 74.375000
+39/113 train_loss: 0.579615, train_acc: 74.609375
+59/113 train_loss: 0.579160, train_acc: 74.739583
+79/113 train_loss: 0.570719, train_acc: 75.390625
+99/113 train_loss: 0.571934, train_acc: 75.281250
+End of 11 train_loss: 0.5692, train_acc: 75.7743, val_loss: 0.5259, val_acc: 80.7661, f1_score: 0.7143
+Epoch 12------------------------------------------------------------
+19/113 train_loss: 0.547138, train_acc: 77.968750
+39/113 train_loss: 0.587705, train_acc: 75.937500
+59/113 train_loss: 0.583768, train_acc: 76.093750
+79/113 train_loss: 0.569596, train_acc: 76.367188
+99/113 train_loss: 0.558309, train_acc: 76.718750
+End of 12 train_loss: 0.5564, train_acc: 76.7699, val_loss: 0.4846, val_acc: 80.7776, f1_score: 0.7261
+Epoch 13------------------------------------------------------------
+19/113 train_loss: 0.532656, train_acc: 77.187500
+39/113 train_loss: 0.572382, train_acc: 75.546875
+59/113 train_loss: 0.574366, train_acc: 76.354167
+79/113 train_loss: 0.557860, train_acc: 77.382812
+99/113 train_loss: 0.556581, train_acc: 77.125000
+End of 13 train_loss: 0.5570, train_acc: 77.0465, val_loss: 0.5280, val_acc: 80.7719, f1_score: 0.7150
+Epoch 14------------------------------------------------------------
+19/113 train_loss: 0.534966, train_acc: 78.281250
+39/113 train_loss: 0.553687, train_acc: 76.796875
+59/113 train_loss: 0.554017, train_acc: 76.875000
+79/113 train_loss: 0.540582, train_acc: 77.773438
+99/113 train_loss: 0.537781, train_acc: 77.812500
+End of 14 train_loss: 0.5334, train_acc: 78.0420, val_loss: 0.5163, val_acc: 80.6855, f1_score: 0.7114
+Epoch 15------------------------------------------------------------
+19/113 train_loss: 0.535464, train_acc: 77.656250
+39/113 train_loss: 0.559196, train_acc: 77.343750
+59/113 train_loss: 0.550164, train_acc: 78.072917
+79/113 train_loss: 0.534915, train_acc: 78.554688
+99/113 train_loss: 0.526109, train_acc: 78.656250
+End of 15 train_loss: 0.5212, train_acc: 79.0100, val_loss: 0.5189, val_acc: 81.1319, f1_score: 0.7320
+new best model saved.
+Epoch 16------------------------------------------------------------
+19/113 train_loss: 0.507369, train_acc: 78.281250
+39/113 train_loss: 0.529400, train_acc: 77.656250
+59/113 train_loss: 0.530620, train_acc: 77.968750
+79/113 train_loss: 0.522928, train_acc: 78.437500
+99/113 train_loss: 0.515667, train_acc: 78.718750
+End of 16 train_loss: 0.5146, train_acc: 78.9178, val_loss: 0.4812, val_acc: 82.1976, f1_score: 0.7380
+new best model saved.
+Epoch 17------------------------------------------------------------
+19/113 train_loss: 0.459681, train_acc: 80.781250
+39/113 train_loss: 0.506608, train_acc: 79.296875
+59/113 train_loss: 0.511688, train_acc: 78.906250
+79/113 train_loss: 0.503542, train_acc: 79.492188
+99/113 train_loss: 0.499217, train_acc: 79.375000
+End of 17 train_loss: 0.4985, train_acc: 79.4524, val_loss: 0.5355, val_acc: 80.9505, f1_score: 0.7160
+Epoch 18------------------------------------------------------------
+19/113 train_loss: 0.492990, train_acc: 79.375000
+39/113 train_loss: 0.524258, train_acc: 78.046875
+59/113 train_loss: 0.519310, train_acc: 78.906250
+79/113 train_loss: 0.513564, train_acc: 79.023438
+99/113 train_loss: 0.506149, train_acc: 79.156250
+End of 18 train_loss: 0.5051, train_acc: 79.1482, val_loss: 0.4822, val_acc: 81.9297, f1_score: 0.7334
+Epoch 19------------------------------------------------------------
+19/113 train_loss: 0.486223, train_acc: 78.906250
+39/113 train_loss: 0.506968, train_acc: 77.656250
+59/113 train_loss: 0.497696, train_acc: 78.593750
+79/113 train_loss: 0.492756, train_acc: 78.867188
+99/113 train_loss: 0.485388, train_acc: 79.250000
+End of 19 train_loss: 0.4903, train_acc: 79.2588, val_loss: 0.4979, val_acc: 80.0518, f1_score: 0.7005
+Epoch 20------------------------------------------------------------
+19/113 train_loss: 0.476651, train_acc: 79.218750
+39/113 train_loss: 0.516527, train_acc: 78.515625
+59/113 train_loss: 0.507356, train_acc: 78.906250
+79/113 train_loss: 0.492924, train_acc: 79.609375
+99/113 train_loss: 0.485997, train_acc: 79.843750
+End of 20 train_loss: 0.4855, train_acc: 80.2083, val_loss: 0.5240, val_acc: 81.3940, f1_score: 0.7194
+Epoch 21------------------------------------------------------------
+19/113 train_loss: 0.434933, train_acc: 82.500000
+39/113 train_loss: 0.474927, train_acc: 80.703125
+59/113 train_loss: 0.488445, train_acc: 79.947917
+79/113 train_loss: 0.480029, train_acc: 80.234375
+99/113 train_loss: 0.473801, train_acc: 80.250000
+End of 21 train_loss: 0.4683, train_acc: 80.4204, val_loss: 0.4877, val_acc: 82.4654, f1_score: 0.7473
+new best model saved.
+Epoch 22------------------------------------------------------------
+19/113 train_loss: 0.448734, train_acc: 79.687500
+39/113 train_loss: 0.480216, train_acc: 79.062500
+59/113 train_loss: 0.477415, train_acc: 79.687500
+79/113 train_loss: 0.473482, train_acc: 79.921875
+99/113 train_loss: 0.473078, train_acc: 80.062500
+End of 22 train_loss: 0.4709, train_acc: 80.0885, val_loss: 0.4887, val_acc: 82.3762, f1_score: 0.7503
+Epoch 23------------------------------------------------------------
+19/113 train_loss: 0.431191, train_acc: 80.156250
+39/113 train_loss: 0.459558, train_acc: 80.156250
+59/113 train_loss: 0.464651, train_acc: 79.739583
+79/113 train_loss: 0.464217, train_acc: 79.804688
+99/113 train_loss: 0.454854, train_acc: 80.343750
+End of 23 train_loss: 0.4551, train_acc: 80.2268, val_loss: 0.4727, val_acc: 82.3819, f1_score: 0.7501
+Epoch 24------------------------------------------------------------
+19/113 train_loss: 0.478861, train_acc: 79.062500
+39/113 train_loss: 0.485743, train_acc: 78.984375
+59/113 train_loss: 0.478254, train_acc: 79.947917
+79/113 train_loss: 0.467807, train_acc: 80.820312
+99/113 train_loss: 0.469890, train_acc: 80.437500
+End of 24 train_loss: 0.4685, train_acc: 80.2544, val_loss: 0.5057, val_acc: 83.5455, f1_score: 0.7599
+new best model saved.
+Epoch 25------------------------------------------------------------
+19/113 train_loss: 0.405021, train_acc: 83.125000
+39/113 train_loss: 0.463156, train_acc: 80.390625
+59/113 train_loss: 0.460350, train_acc: 80.572917
+79/113 train_loss: 0.452037, train_acc: 81.250000
+99/113 train_loss: 0.446152, train_acc: 81.281250
+End of 25 train_loss: 0.4396, train_acc: 81.7662, val_loss: 0.6113, val_acc: 81.3047, f1_score: 0.7164
+Epoch 26------------------------------------------------------------
+19/113 train_loss: 0.427081, train_acc: 82.343750
+39/113 train_loss: 0.441745, train_acc: 81.796875
+59/113 train_loss: 0.450212, train_acc: 82.031250
+79/113 train_loss: 0.449646, train_acc: 82.109375
+99/113 train_loss: 0.438367, train_acc: 82.156250
+End of 26 train_loss: 0.4368, train_acc: 82.2917, val_loss: 0.5590, val_acc: 81.3911, f1_score: 0.7197
+Epoch 27------------------------------------------------------------
+19/113 train_loss: 0.426813, train_acc: 81.718750
+39/113 train_loss: 0.454431, train_acc: 80.468750
+59/113 train_loss: 0.449923, train_acc: 81.562500
+79/113 train_loss: 0.439614, train_acc: 81.953125
+99/113 train_loss: 0.436067, train_acc: 82.000000
+End of 27 train_loss: 0.4393, train_acc: 81.8584, val_loss: 0.5207, val_acc: 81.4833, f1_score: 0.7272
+Epoch 28------------------------------------------------------------
+19/113 train_loss: 0.433564, train_acc: 83.593750
+39/113 train_loss: 0.438566, train_acc: 82.890625
+59/113 train_loss: 0.430925, train_acc: 83.072917
+79/113 train_loss: 0.426670, train_acc: 83.242188
+99/113 train_loss: 0.420607, train_acc: 83.250000
+End of 28 train_loss: 0.4185, train_acc: 83.3518, val_loss: 0.5233, val_acc: 80.8612, f1_score: 0.7191
+Epoch 29------------------------------------------------------------
+19/113 train_loss: 0.417400, train_acc: 82.812500
+39/113 train_loss: 0.433171, train_acc: 82.187500
+59/113 train_loss: 0.434005, train_acc: 82.135417
+79/113 train_loss: 0.428663, train_acc: 82.109375
+99/113 train_loss: 0.422675, train_acc: 82.312500
+End of 29 train_loss: 0.4223, train_acc: 82.3101, val_loss: 0.5239, val_acc: 81.7569, f1_score: 0.7383
+Epoch 30------------------------------------------------------------
+19/113 train_loss: 0.395698, train_acc: 84.687500
+39/113 train_loss: 0.417508, train_acc: 83.593750
+59/113 train_loss: 0.415008, train_acc: 83.906250
+79/113 train_loss: 0.408782, train_acc: 83.945312
+99/113 train_loss: 0.399474, train_acc: 84.406250
+End of 30 train_loss: 0.4004, train_acc: 84.4211, val_loss: 0.6618, val_acc: 79.6976, f1_score: 0.6787
+Training ended with 30 epochs.
+Final Result: test_loss:0.5056822299957275, test_acc:83.54550691244239, test_f1:0.7599042338001986
