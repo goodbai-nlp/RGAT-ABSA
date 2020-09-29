@@ -4,7 +4,7 @@ source_dir=dataset
 emb_dir=/mnt/data2/xfbai/data/embeddings/glove
 save_dir=saved_models
 
-exp_setting=${layers}layer-${nheads}head-${pool}-${merge}
+exp_setting=train
 
 ####### Tweets  acc:75.36 f1:74.15 #########
 exp_dataset=Biaffine/glove/Tweets

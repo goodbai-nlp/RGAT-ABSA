@@ -4,7 +4,7 @@ source_dir=dataset
 emb_dir=/mnt/data2/xfbai/data/embeddings/glove
 save_dir=saved_models
 
-exp_setting=${layers}layer-${nheads}head-${pool}-${merge}
+exp_setting=train
 
 ####### Laptops  acc:78.02 f1:74.00 #########
 exp_dataset=Biaffine/glove/Laptops
