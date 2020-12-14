@@ -1,4 +1,4 @@
-# Exploiting Typed Syntactic Dependencies for Targeted Sentiment Classification Using Graph Attention Neural Network
+# Investigating Typed Syntactic Dependencies for Targeted Sentiment Classification Using Graph Attention Neural Network
 ## Setup
 
 This code runs Python 3.6 with the following libraries:
