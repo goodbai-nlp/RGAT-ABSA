@@ -6,9 +6,13 @@ This repository contains the code for the paper "Investigating Typed Syntactic D
 This code runs Python 3.6 with the following libraries:
 
 + Pytorch 1.2.0
-+ Torchtext 0.4.0
 + Transformers 2.9.1
 + GTX 1080 Ti
+
+You can also create an virtual environments with `conda` by run
+```
+conda env create -f requirements.yaml
+```
 
 ## Get start
 
