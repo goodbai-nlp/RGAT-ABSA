@@ -1,23 +1,20 @@
-# coding:utf-8
 import pickle
-import tqdm
-from collections import Counter
 
 
 class Vocab(object):
-    def __init__(self, counter, specials=['<pad>', '<unk>']):
+    def __init__(self, counter, specials=["<pad>", "<unk>"]):
         self.pad_index = 0
         self.unk_index = 1
         counter = counter.copy()
         self.itos = list(specials)
         for tok in specials:
             del counter[tok]
-        
+
         # sort by frequency, then alphabetically
         words_and_frequencies = sorted(counter.items(), key=lambda tup: tup[0])
         words_and_frequencies.sort(key=lambda tup: tup[1], reverse=True)
 
-        for word, freq in words_and_frequencies:
+        for word, _ in words_and_frequencies:
             self.itos.append(word)
 
         # stoi is simply a reverse dict for itos
@@ -44,9 +41,10 @@ class Vocab(object):
     @staticmethod
     def load_vocab(vocab_path: str):
         with open(vocab_path, "rb") as f:
+            print('Loading vocab from:', vocab_path)
             return pickle.load(f)
 
     def save_vocab(self, vocab_path):
         with open(vocab_path, "wb") as f:
+            print('Saving vocab to:', vocab_path)
             pickle.dump(self, f)
-

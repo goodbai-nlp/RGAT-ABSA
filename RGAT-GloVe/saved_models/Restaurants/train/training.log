@@ -1,0 +1,239 @@
+Loading vocab...
+Loading vocab from: ../dataset/Biaffine/glove/Restaurants/vocab_tok.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Restaurants/vocab_post.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Restaurants/vocab_pos.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Restaurants/vocab_dep.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Restaurants/vocab_pol.vocab
+token_vocab: 4521, post_vocab: 160, pos_vocab: 46, dep_vocab: 35, pol_vocab: 3
+Loading pretrained word emb...
+Loading 4340/4521 words from vocab...
+-----------  Configuration Arguments -----------
+alpha: 1.0
+att_dropout: 0
+attn_heads: 10
+batch_size: 32
+beta: 1.0
+bidirect: True
+cross_val_fold: 10
+data_dir: ../dataset/Biaffine/glove/Restaurants
+dep_dim: 30
+dep_size: 35
+direct: False
+emb_dim: 300
+glove_dir: /mnt/data2/xfbai/data/embeddings/glove
+hidden_dim: 50
+input_dropout: 0.7
+layer_dropout: 0
+log: logs.txt
+log_step: 20
+loop: True
+lower: True
+lr: 0.01
+model: RGAT
+num_class: 3
+num_epoch: 65
+num_layers: 6
+optim: adamax
+output_merge: None
+pooling: avg
+pos_dim: 30
+pos_size: 46
+post_dim: 30
+post_size: 160
+rnn_dropout: 0.1
+rnn_hidden: 50
+rnn_layers: 1
+save_dir: saved_models/Restaurants/train
+seed: 14
+shuffle: True
+tok_size: 4521
+tune: False
+vocab_dir: ../dataset/Biaffine/glove/Restaurants
+------------------------------------------------
+3608 instances loaded from ../dataset/Biaffine/glove/Restaurants/train.json
+113 batches created for ../dataset/Biaffine/glove/Restaurants/train.json
+1119 instances loaded from ../dataset/Biaffine/glove/Restaurants/valid.json
+35 batches created for ../dataset/Biaffine/glove/Restaurants/valid.json
+1119 instances loaded from ../dataset/Biaffine/glove/Restaurants/test.json
+35 batches created for ../dataset/Biaffine/glove/Restaurants/test.json
+/mnt/data2/xfbai/Anaconda/envs/py36torch1.2new/lib/python3.6/site-packages/torch/nn/modules/rnn.py:51: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.1 and num_layers=1
+  "num_layers={}".format(dropout, num_layers))
+Invalid output_merge type, should in (gate, none).
+RGATABSA(
+  (enc): ABSAEncoder(
+    (emb): Embedding(4521, 300, padding_idx=0)
+    (pos_emb): Embedding(46, 30, padding_idx=0)
+    (post_emb): Embedding(160, 30, padding_idx=0)
+    (dep_emb): Embedding(35, 30, padding_idx=0)
+    (encoder): DoubleEncoder(
+      (emb): Embedding(4521, 300, padding_idx=0)
+      (pos_emb): Embedding(46, 30, padding_idx=0)
+      (post_emb): Embedding(160, 30, padding_idx=0)
+      (dep_emb): Embedding(35, 30, padding_idx=0)
+      (Sent_encoder): LSTM(360, 50, batch_first=True, dropout=0.1, bidirectional=True)
+      (rnn_drop): Dropout(p=0.1, inplace=False)
+      (in_drop): Dropout(p=0.7, inplace=False)
+      (graph_encoder): RGATEncoder(
+        (transformer): ModuleList(
+          (0): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (1): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (2): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (3): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (4): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (5): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=10, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=10, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+        )
+        (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+      )
+      (out_map): Linear(in_features=100, out_features=50, bias=True)
+    )
+    (inp_map): Linear(in_features=100, out_features=50, bias=True)
+  )
+  (classifier): Linear(in_features=50, out_features=3, bias=True)
+)
+Total parameters: 1908503
+Training Set: 113
+Valid Set: 35
+Test Set: 35
+Epoch 1------------------------------------------------------------
+19/113 train_loss: 1.075692, train_acc: 58.437500
+39/113 train_loss: 1.017757, train_acc: 59.296875
+59/113 train_loss: 1.012394, train_acc: 58.541667
+79/113 train_loss: 0.995834, train_acc: 59.218750
+99/113 train_loss: 0.989352, train_acc: 59.125000
+End of 1 train_loss: 0.9849, train_acc: 59.1630, val_loss: 0.8864, val_acc: 64.9309, f1_score: 0.2625
+new best model saved.
+Epoch 2------------------------------------------------------------
+19/113 train_loss: 0.909512, train_acc: 62.968750
+39/113 train_loss: 0.923068, train_acc: 61.562500
+59/113 train_loss: 0.941001, train_acc: 59.687500
+79/113 train_loss: 0.930409, train_acc: 60.195312
+99/113 train_loss: 0.914612, train_acc: 60.343750
+End of 2 train_loss: 0.9041, train_acc: 60.5181, val_loss: 0.7137, val_acc: 68.8796, f1_score: 0.4674
+new best model saved.
+Epoch 3------------------------------------------------------------
