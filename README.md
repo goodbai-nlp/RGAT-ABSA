@@ -1,4 +1,6 @@
 # Investigating Typed Syntactic Dependencies for Targeted Sentiment Classification Using Graph Attention Neural Network
+This repository contains the code for the paper "Investigating Typed Syntactic Dependencies for Targeted Sentiment Classification Using Graph Attention Neural Network", IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP)
+
 ## Setup
 
 This code runs Python 3.6 with the following libraries:
