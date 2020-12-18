@@ -1,0 +1,311 @@
+Loading vocab...
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_tok.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_post.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_pos.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_dep.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_pol.vocab
+token_vocab: 13146, post_vocab: 94, pos_vocab: 47, dep_vocab: 35, pol_vocab: 3
+Loading pretrained word emb...
+Loading 11320/13146 words from vocab...
+-----------  Configuration Arguments -----------
+alpha: 1.0
+att_dropout: 0
+attn_heads: 5
+batch_size: 32
+beta: 1.0
+bidirect: True
+cross_val_fold: 10
+data_dir: ../dataset/Biaffine/glove/Tweets
+dep_dim: 30
+dep_size: 35
+direct: False
+emb_dim: 300
+glove_dir: /mnt/data2/xfbai/data/embeddings/glove
+hidden_dim: 50
+input_dropout: 0.7
+layer_dropout: 0
+log: logs.txt
+log_step: 20
+loop: True
+lower: True
+lr: 0.01
+model: RGAT
+num_class: 3
+num_epoch: 60
+num_layers: 6
+optim: adamax
+output_merge: gate
+pooling: avg
+pos_dim: 30
+pos_size: 47
+post_dim: 30
+post_size: 94
+rnn_dropout: 0.1
+rnn_hidden: 50
+rnn_layers: 1
+save_dir: saved_models/Tweets/train
+seed: 22
+shuffle: True
+tok_size: 13146
+tune: False
+vocab_dir: ../dataset/Biaffine/glove/Tweets
+------------------------------------------------
+6051 instances loaded from ../dataset/Biaffine/glove/Tweets/train.json
+190 batches created for ../dataset/Biaffine/glove/Tweets/train.json
+677 instances loaded from ../dataset/Biaffine/glove/Tweets/valid.json
+22 batches created for ../dataset/Biaffine/glove/Tweets/valid.json
+677 instances loaded from ../dataset/Biaffine/glove/Tweets/test.json
+22 batches created for ../dataset/Biaffine/glove/Tweets/test.json
+/mnt/data2/xfbai/Anaconda/envs/py36torch1.2new/lib/python3.6/site-packages/torch/nn/modules/rnn.py:51: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.1 and num_layers=1
+  "num_layers={}".format(dropout, num_layers))
+RGATABSA(
+  (enc): ABSAEncoder(
+    (emb): Embedding(13146, 300, padding_idx=0)
+    (pos_emb): Embedding(47, 30, padding_idx=0)
+    (post_emb): Embedding(94, 30, padding_idx=0)
+    (dep_emb): Embedding(35, 30, padding_idx=0)
+    (encoder): DoubleEncoder(
+      (emb): Embedding(13146, 300, padding_idx=0)
+      (pos_emb): Embedding(47, 30, padding_idx=0)
+      (post_emb): Embedding(94, 30, padding_idx=0)
+      (dep_emb): Embedding(35, 30, padding_idx=0)
+      (Sent_encoder): LSTM(360, 50, batch_first=True, dropout=0.1, bidirectional=True)
+      (rnn_drop): Dropout(p=0.1, inplace=False)
+      (in_drop): Dropout(p=0.7, inplace=False)
+      (graph_encoder): RGATEncoder(
+        (transformer): ModuleList(
+          (0): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=20, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=20, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (1): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=20, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=20, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (2): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=20, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=20, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (3): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=20, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=20, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (4): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=20, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=20, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+          (5): RGATLayer(
+            (self_attn): MultiHeadedAttention(
+              (linear_keys): Linear(in_features=100, out_features=100, bias=True)
+              (linear_values): Linear(in_features=100, out_features=100, bias=True)
+              (linear_query): Linear(in_features=100, out_features=100, bias=True)
+              (linear_structure_k): Linear(in_features=30, out_features=20, bias=True)
+              (linear_structure_v): Linear(in_features=30, out_features=20, bias=True)
+              (softmax): Softmax(dim=-1)
+              (dropout): Dropout(p=0, inplace=False)
+              (final_linear): Linear(in_features=100, out_features=100, bias=True)
+            )
+            (feed_forward): PositionwiseFeedForward(
+              (w_1): Linear(in_features=100, out_features=100, bias=True)
+              (w_2): Linear(in_features=100, out_features=100, bias=True)
+              (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+              (dropout_1): Dropout(p=0, inplace=False)
+              (relu): ReLU()
+              (dropout_2): Dropout(p=0, inplace=False)
+            )
+            (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+            (dropout): Dropout(p=0, inplace=False)
+          )
+        )
+        (layer_norm): LayerNorm((100,), eps=1e-06, elementwise_affine=True)
+      )
+      (out_map): Linear(in_features=100, out_features=50, bias=True)
+    )
+    (inp_map): Linear(in_features=100, out_features=50, bias=True)
+    (out_gate_map): Linear(in_features=100, out_features=50, bias=True)
+  )
+  (classifier): Linear(in_features=50, out_features=3, bias=True)
+)
+Total parameters: 4502823
+Training Set: 190
+Valid Set: 22
+Test Set: 22
+Epoch 1------------------------------------------------------------
+19/190 train_loss: 1.127784, train_acc: 40.156250
+39/190 train_loss: 1.071004, train_acc: 46.406250
+59/190 train_loss: 1.041116, train_acc: 49.010417
+79/190 train_loss: 1.027429, train_acc: 50.195312
+99/190 train_loss: 1.018218, train_acc: 50.093750
+119/190 train_loss: 1.008441, train_acc: 50.520833
+139/190 train_loss: 0.994232, train_acc: 51.272321
+159/190 train_loss: 0.990183, train_acc: 51.542969
+179/190 train_loss: 0.986065, train_acc: 51.961806
+End of 1 train_loss: 0.9819, train_acc: 52.3849, val_loss: 0.8789, val_acc: 60.3125, f1_score: 0.5541
+new best model saved.
+Epoch 2------------------------------------------------------------
+19/190 train_loss: 0.955114, train_acc: 54.531250
+39/190 train_loss: 0.932262, train_acc: 57.109375
+59/190 train_loss: 0.917930, train_acc: 58.020833
+79/190 train_loss: 0.910731, train_acc: 58.828125
+99/190 train_loss: 0.907558, train_acc: 58.625000
+119/190 train_loss: 0.908508, train_acc: 58.437500
+139/190 train_loss: 0.900140, train_acc: 59.263393
+159/190 train_loss: 0.895831, train_acc: 59.531250
+179/190 train_loss: 0.890256, train_acc: 59.548611
+End of 2 train_loss: 0.8888, train_acc: 59.6107, val_loss: 0.8155, val_acc: 63.7216, f1_score: 0.6057
+new best model saved.
+Epoch 3------------------------------------------------------------
+19/190 train_loss: 0.875534, train_acc: 58.750000
+39/190 train_loss: 0.867521, train_acc: 58.671875
+59/190 train_loss: 0.863918, train_acc: 59.218750
+79/190 train_loss: 0.845528, train_acc: 60.625000
+99/190 train_loss: 0.843131, train_acc: 60.750000
+119/190 train_loss: 0.844765, train_acc: 60.390625
+139/190 train_loss: 0.837842, train_acc: 61.093750
+159/190 train_loss: 0.832250, train_acc: 61.621094
+179/190 train_loss: 0.829868, train_acc: 61.944444
+End of 3 train_loss: 0.8304, train_acc: 61.9134, val_loss: 0.7685, val_acc: 67.2727, f1_score: 0.6307
+new best model saved.
+Epoch 4------------------------------------------------------------
+19/190 train_loss: 0.846407, train_acc: 60.156250
+39/190 train_loss: 0.824877, train_acc: 62.187500
+59/190 train_loss: 0.823842, train_acc: 62.083333
+79/190 train_loss: 0.808284, train_acc: 62.890625
+99/190 train_loss: 0.797719, train_acc: 63.968750
+119/190 train_loss: 0.796653, train_acc: 63.906250
+139/190 train_loss: 0.791103, train_acc: 64.620536
+159/190 train_loss: 0.789390, train_acc: 64.765625
+179/190 train_loss: 0.787189, train_acc: 64.947917
+End of 4 train_loss: 0.7838, train_acc: 65.1974, val_loss: 0.7574, val_acc: 67.4148, f1_score: 0.6553
+new best model saved.
+Epoch 5------------------------------------------------------------
+19/190 train_loss: 0.798299, train_acc: 63.593750
+39/190 train_loss: 0.795318, train_acc: 64.453125
+59/190 train_loss: 0.790473, train_acc: 65.468750
+79/190 train_loss: 0.781602, train_acc: 65.976562
+99/190 train_loss: 0.779053, train_acc: 66.406250
+119/190 train_loss: 0.779031, train_acc: 66.067708
+139/190 train_loss: 0.767833, train_acc: 66.852679
+159/190 train_loss: 0.765592, train_acc: 66.972656
+179/190 train_loss: 0.763588, train_acc: 66.770833
+End of 5 train_loss: 0.7616, train_acc: 66.8750, val_loss: 0.7501, val_acc: 70.3977, f1_score: 0.6826
+new best model saved.
+Epoch 6------------------------------------------------------------
+19/190 train_loss: 0.797663, train_acc: 64.062500
+39/190 train_loss: 0.789859, train_acc: 65.312500
+59/190 train_loss: 0.783242, train_acc: 64.583333
+79/190 train_loss: 0.772993, train_acc: 65.664062
+99/190 train_loss: 0.769195, train_acc: 66.062500
+119/190 train_loss: 0.770854, train_acc: 65.989583
+139/190 train_loss: 0.759344, train_acc: 66.830357
+159/190 train_loss: 0.759983, train_acc: 66.875000
+179/190 train_loss: 0.755818, train_acc: 67.048611
+End of 6 train_loss: 0.7538, train_acc: 67.1930, val_loss: 0.7543, val_acc: 69.4034, f1_score: 0.6788
+Epoch 7------------------------------------------------------------
+19/190 train_loss: 0.752167, train_acc: 66.875000
+39/190 train_loss: 0.764767, train_acc: 66.015625
+59/190 train_loss: 0.754250, train_acc: 66.822917
+79/190 train_loss: 0.738803, train_acc: 67.539062
+99/190 train_loss: 0.730850, train_acc: 68.093750
+119/190 train_loss: 0.734692, train_acc: 67.630208
+139/190 train_loss: 0.730167, train_acc: 68.080357
+159/190 train_loss: 0.725807, train_acc: 68.378906
+179/190 train_loss: 0.721653, train_acc: 68.663194
+End of 7 train_loss: 0.7192, train_acc: 68.6404, val_loss: 0.7590, val_acc: 71.5341, f1_score: 0.7021
+new best model saved.
+Epoch 8------------------------------------------------------------
+19/190 train_loss: 0.717857, train_acc: 69.218750
+39/190 train_loss: 0.739232, train_acc: 67.890625
+59/190 train_loss: 0.743401, train_acc: 67.864583
+79/190 train_loss: 0.731936, train_acc: 68.593750
+99/190 train_loss: 0.721830, train_acc: 69.187500
