@@ -13,7 +13,7 @@ if [ ! -d "$exp_path" ]; then
   mkdir -p "$exp_path"
 fi
 
-CUDA_VISIBLE_DEVICES=0 python -u train.py \
+CUDA_VISIBLE_DEVICES=1 python -u train.py \
 	--data_dir $source_dir/$exp_dataset \
 	--vocab_dir $source_dir/$exp_dataset \
 	--glove_dir $emb_dir \

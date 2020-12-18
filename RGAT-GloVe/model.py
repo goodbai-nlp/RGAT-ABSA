@@ -66,18 +66,17 @@ class ABSAEncoder(nn.Module):
             exit(0)
 
         # #################### pooling and fusion modules ###################
-        if self.args.pooling == "attn":
+        if self.args.pooling.lower() == "attn":
             self.attn = torch.nn.Linear(args.hidden_dim, 1)
-        if self.args.output_merge != "none":
+        if self.args.output_merge.lower() == "gate":
             self.inp_map = torch.nn.Linear(args.hidden_dim * 2, args.hidden_dim)
-        if self.args.output_merge == "gate":
             self.out_gate_map = torch.nn.Linear(args.hidden_dim * 2, args.hidden_dim)
-        elif self.args.output_merge == "none":
+        elif self.args.output_merge.lower() == "none":
             pass
         else:
             print("Invalid output_merge type, should in (gate, none).")
 
-        if self.args.output_merge != "none":
+        if self.args.output_merge.lower() != "none":
             self.reset_parameters()
 
     def reset_parameters(self):
@@ -124,7 +123,7 @@ class ABSAEncoder(nn.Module):
         if self.args.model.lower() == "std":
             sent_out, graph_out = self.encoder(adj=None, inputs=inputs, lengths=lengths)
         elif self.args.model.lower() == "gat":
-            sent_out, graph_out = self.transformer_encoder(adj=adj, inputs=inputs, lengths=lengths)
+            sent_out, graph_out = self.encoder(adj=adj, inputs=inputs, lengths=lengths)
         elif self.args.model.lower() == "rgat":
             sent_out, graph_out = self.encoder(
                 adj=adj, relation_matrix=label_all, inputs=inputs, lengths=lengths

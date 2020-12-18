@@ -58,7 +58,6 @@ vocab_dir: ../dataset/Biaffine/glove/Restaurants
 35 batches created for ../dataset/Biaffine/glove/Restaurants/test.json
 /mnt/data2/xfbai/Anaconda/envs/py36torch1.2new/lib/python3.6/site-packages/torch/nn/modules/rnn.py:51: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.1 and num_layers=1
   "num_layers={}".format(dropout, num_layers))
-Invalid output_merge type, should in (gate, none).
 RGATABSA(
   (enc): ABSAEncoder(
     (emb): Embedding(4521, 300, padding_idx=0)
@@ -212,28 +211,29 @@ RGATABSA(
       )
       (out_map): Linear(in_features=100, out_features=50, bias=True)
     )
-    (inp_map): Linear(in_features=100, out_features=50, bias=True)
   )
   (classifier): Linear(in_features=50, out_features=3, bias=True)
 )
-Total parameters: 1908503
+Total parameters: 1903453
 Training Set: 113
 Valid Set: 35
 Test Set: 35
 Epoch 1------------------------------------------------------------
-19/113 train_loss: 1.075692, train_acc: 58.437500
-39/113 train_loss: 1.017757, train_acc: 59.296875
-59/113 train_loss: 1.012394, train_acc: 58.541667
-79/113 train_loss: 0.995834, train_acc: 59.218750
-99/113 train_loss: 0.989352, train_acc: 59.125000
-End of 1 train_loss: 0.9849, train_acc: 59.1630, val_loss: 0.8864, val_acc: 64.9309, f1_score: 0.2625
+19/113 train_loss: 1.047034, train_acc: 58.437500
+39/113 train_loss: 1.000554, train_acc: 59.296875
+59/113 train_loss: 1.001152, train_acc: 58.541667
+79/113 train_loss: 0.985207, train_acc: 59.218750
+99/113 train_loss: 0.980778, train_acc: 59.125000
+End of 1 train_loss: 0.9769, train_acc: 59.1630, val_loss: 0.8781, val_acc: 64.9309, f1_score: 0.2625
 new best model saved.
 Epoch 2------------------------------------------------------------
-19/113 train_loss: 0.909512, train_acc: 62.968750
-39/113 train_loss: 0.923068, train_acc: 61.562500
-59/113 train_loss: 0.941001, train_acc: 59.687500
-79/113 train_loss: 0.930409, train_acc: 60.195312
-99/113 train_loss: 0.914612, train_acc: 60.343750
-End of 2 train_loss: 0.9041, train_acc: 60.5181, val_loss: 0.7137, val_acc: 68.8796, f1_score: 0.4674
+19/113 train_loss: 0.899955, train_acc: 62.968750
+39/113 train_loss: 0.900044, train_acc: 61.640625
+59/113 train_loss: 0.908112, train_acc: 60.781250
+79/113 train_loss: 0.884315, train_acc: 61.679688
+99/113 train_loss: 0.862003, train_acc: 62.062500
+End of 2 train_loss: 0.8521, train_acc: 62.5092, val_loss: 0.6522, val_acc: 73.8854, f1_score: 0.5804
 new best model saved.
 Epoch 3------------------------------------------------------------
+19/113 train_loss: 0.748517, train_acc: 67.031250
+39/113 train_loss: 0.755812, train_acc: 66.640625
