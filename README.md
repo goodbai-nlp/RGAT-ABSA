@@ -21,7 +21,14 @@ conda env create -f requirements.yaml
 1. Prepare data
 
    + Restaurants, Laptop, Tweets and MAMS dataset. (We provide the parsed data at directory `dataset`)
-   + Glove embeddings (available at [here](http://nlp.stanford.edu/data/glove.840B.300d.zip))
+
+   + Downloading Glove embeddings (available at [here](http://nlp.stanford.edu/data/glove.840B.300d.zip)), then  run 
+
+     ```
+     awk '{print $1}' glove.840B.300d.txt > glove_words.txt
+     ```
+
+     to get `glove_words.txt`.
 
 2. Build vocabulary
 
