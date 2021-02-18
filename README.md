@@ -52,7 +52,7 @@ conda env create -f requirements.yaml
 @ARTICLE{bai21syntax,  
 	author={Xuefeng Bai and Pengbo Liu and Yue Zhang},  
 	journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing},   
-	title={Investigating Typed Syntactic Dependencies for Targeted Sentiment 	Classification Using Graph Attention Neural Network},   
+	title={Investigating Typed Syntactic Dependencies for Targeted Sentiment Classification Using Graph Attention Neural Network},   
 	year={2021},  
 	volume={29}, 
 	pages={503-514},  
