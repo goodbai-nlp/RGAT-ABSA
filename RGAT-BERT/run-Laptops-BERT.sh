@@ -7,7 +7,6 @@ exp_setting=train
 exp_dataset=Biaffine/glove/Laptops
 
 ############# Laptops acc:82.34, f1:78.94 #################
-
 exp_path=$save_dir/Laptops/$exp_setting
 
 if [ ! -d "$exp_path" ]; then
