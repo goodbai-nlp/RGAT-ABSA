@@ -48,6 +48,23 @@ conda env create -f requirements.yaml
 
 ## Results
 
+### GloVe-based Model
+
+|Setting|  Acc  | F1  | Log | Pretrained model |
+|  :----:  | :----:  |:---:|  :----:  | :----:  |
+| Res14  | 83.66 | 75.99 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-GloVe/saved_models/Restaurants/train/training.log) | model |
+| Laptop  | 78.02 | 74.00 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-GloVe/saved_models/Laptop/train/training.log) | model |
+| Tweets  | 75.37 | 74.15 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-GloVe/saved_models/Tweets/train/training.log) | model |
+| MAMS  | 82.02 | 80.99 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-GloVe/saved_models/MAMS/train/training.log) | model |
+
+### BERT-based Model
+
+|Setting|  Acc  | F1  | Log | Pretrained model |
+|  :----:  | :----:  |:---:|  :----:  | :----:  |
+| Res14  | 86.68 | 80.92 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/Restaurants/train/training.log) | model |
+| Laptop  | 82.34 | 78.94 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/Laptop/train/training.log) | model |
+| Tweets  | 76.28 | 75.41 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/Tweets/train/training.log) | model |
+| MAMS  | 84.52 | 83.74 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/MAMS/train/training.log) | model |
 
 
 ## References
