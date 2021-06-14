@@ -62,9 +62,9 @@ conda env create -f requirements.yaml
 |Setting|  Acc  | F1  | Log | Pretrained model |
 |  :----:  | :----:  |:---:|  :----:  | :----:  |
 | Res14  | 86.68 | 80.92 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/Restaurants/train/training.log) | [model](https://drive.google.com/file/d/1P9K8yu6nccbxIu2vc2ZOvu16m4ggFzlG/view?usp=sharing) |
-| Laptop  | 82.34 | 78.94 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/Laptop/train/training.log) | [model]()  |
-| Tweets  | 76.28 | 75.41 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/Tweets/train/training.log) | [model]()  |
-| MAMS  | 84.52 | 83.74 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/MAMS/train/training.log) | [model]()  |
+| Laptop  | 82.34 | 78.94 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/Laptop/train/training.log) | [model](https://drive.google.com/file/d/122R8sthFFLQZjkCqc7unFsyGZ2h9t_hk/view?usp=sharing)  |
+| Tweets  | 76.28 | 75.41 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/Tweets/train/training.log) | [model](https://drive.google.com/file/d/14oMqTjAO11Jws5wyMiT95NCOUWaUwkDX/view?usp=sharing)  |
+| MAMS  | 84.52 | 83.74 | [log](https://github.com/muyeby/RGAT-ABSA/blob/master/RGAT-BERT/saved_models/MAMS/train/training.log) | [model](https://drive.google.com/file/d/1Arzpzj3xnxsCnOb0IETUpqTpEKofpcnJ/view?usp=sharing)  |
 
 
 ## References
