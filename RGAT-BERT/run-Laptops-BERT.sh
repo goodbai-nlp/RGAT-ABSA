@@ -6,7 +6,7 @@ save_dir=saved_models
 exp_setting=train
 exp_dataset=Biaffine/glove/Laptops
 
-############# Laptops acc:80.47, f1:76.45 #################
+############# Laptops acc:82.34, f1:78.94 #################
 
 exp_path=$save_dir/Laptops/$exp_setting
 
@@ -15,7 +15,7 @@ if [ ! -d "$exp_path" ]; then
   mkdir -p "$exp_path"
 fi
 
-CUDA_VISIBLE_DEVICES=1 python -u bert_train.py \
+CUDA_VISIBLE_DEVICES=0 python -u bert_train.py \
 	--lr 1e-5 \
 	--bert_lr 2e-5 \
 	--input_dropout 0.1 \

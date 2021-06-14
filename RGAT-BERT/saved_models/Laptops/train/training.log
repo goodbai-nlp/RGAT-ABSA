@@ -398,3 +398,157 @@ RGATABSA(
 Training Set: 143
 Valid/Test Set: 40
 Epoch 1------------------------------------------------------------
+15/143 train_loss: 1.060150, train_acc: 44.140625
+31/143 train_loss: 1.037527, train_acc: 48.046875
+47/143 train_loss: 0.979031, train_acc: 52.994792
+63/143 train_loss: 0.915527, train_acc: 57.421875
+79/143 train_loss: 0.853600, train_acc: 61.250000
+95/143 train_loss: 0.811662, train_acc: 63.541667
+111/143 train_loss: 0.784211, train_acc: 65.401786
+127/143 train_loss: 0.770422, train_acc: 66.259766
+End of 1 train_loss: 0.7587, train_acc: 67.0804, val_loss: 0.5268, val_acc: 78.4375, f1_score: 0.7434
+new best model saved.
+Epoch 2------------------------------------------------------------
+15/143 train_loss: 0.524951, train_acc: 77.343750
+31/143 train_loss: 0.535316, train_acc: 78.710938
+47/143 train_loss: 0.528193, train_acc: 78.776042
+63/143 train_loss: 0.509172, train_acc: 79.492188
+79/143 train_loss: 0.481992, train_acc: 80.703125
+95/143 train_loss: 0.456820, train_acc: 81.966146
+111/143 train_loss: 0.448880, train_acc: 82.142857
+127/143 train_loss: 0.438685, train_acc: 82.421875
+End of 2 train_loss: 0.4337, train_acc: 82.5787, val_loss: 0.4780, val_acc: 82.3438, f1_score: 0.7894
+new best model saved.
+Epoch 3------------------------------------------------------------
+15/143 train_loss: 0.290639, train_acc: 85.937500
+31/143 train_loss: 0.297668, train_acc: 87.500000
+47/143 train_loss: 0.297663, train_acc: 87.109375
+63/143 train_loss: 0.294272, train_acc: 87.207031
+79/143 train_loss: 0.283237, train_acc: 88.125000
+95/143 train_loss: 0.271845, train_acc: 88.802083
+111/143 train_loss: 0.269102, train_acc: 89.174107
+127/143 train_loss: 0.266846, train_acc: 89.355469
+End of 3 train_loss: 0.2633, train_acc: 89.4668, val_loss: 0.5602, val_acc: 79.5312, f1_score: 0.7588
+Epoch 4------------------------------------------------------------
+15/143 train_loss: 0.166475, train_acc: 92.968750
+31/143 train_loss: 0.179091, train_acc: 92.968750
+47/143 train_loss: 0.177571, train_acc: 93.229167
+63/143 train_loss: 0.173220, train_acc: 93.164062
+79/143 train_loss: 0.165475, train_acc: 93.593750
+95/143 train_loss: 0.155650, train_acc: 94.075521
+111/143 train_loss: 0.161758, train_acc: 93.694196
+127/143 train_loss: 0.160586, train_acc: 93.652344
+End of 4 train_loss: 0.1539, train_acc: 93.9685, val_loss: 0.6291, val_acc: 79.8438, f1_score: 0.7723
+Epoch 5------------------------------------------------------------
+15/143 train_loss: 0.067969, train_acc: 98.046875
+31/143 train_loss: 0.094413, train_acc: 96.875000
+47/143 train_loss: 0.106616, train_acc: 96.614583
+63/143 train_loss: 0.109810, train_acc: 96.289062
+79/143 train_loss: 0.107230, train_acc: 96.250000
+95/143 train_loss: 0.107324, train_acc: 96.158854
+111/143 train_loss: 0.117094, train_acc: 95.703125
+127/143 train_loss: 0.115202, train_acc: 95.849609
+End of 5 train_loss: 0.1088, train_acc: 96.1976, val_loss: 0.8031, val_acc: 77.1875, f1_score: 0.7471
+Epoch 6------------------------------------------------------------
+15/143 train_loss: 0.092280, train_acc: 96.875000
+31/143 train_loss: 0.083518, train_acc: 97.070312
+47/143 train_loss: 0.099394, train_acc: 96.484375
+63/143 train_loss: 0.093743, train_acc: 96.777344
+79/143 train_loss: 0.091044, train_acc: 96.953125
+95/143 train_loss: 0.088591, train_acc: 97.005208
+111/143 train_loss: 0.095757, train_acc: 96.819196
+127/143 train_loss: 0.093591, train_acc: 96.728516
+End of 6 train_loss: 0.0920, train_acc: 96.7657, val_loss: 0.8134, val_acc: 78.2812, f1_score: 0.7540
+Epoch 7------------------------------------------------------------
+15/143 train_loss: 0.056329, train_acc: 98.828125
+31/143 train_loss: 0.057608, train_acc: 98.242188
+47/143 train_loss: 0.062140, train_acc: 97.786458
+63/143 train_loss: 0.055571, train_acc: 97.949219
+79/143 train_loss: 0.061475, train_acc: 97.890625
+95/143 train_loss: 0.062961, train_acc: 97.851562
+111/143 train_loss: 0.062349, train_acc: 97.935268
+127/143 train_loss: 0.059425, train_acc: 97.900391
+End of 7 train_loss: 0.0568, train_acc: 97.9458, val_loss: 0.9498, val_acc: 77.6562, f1_score: 0.7393
+Epoch 8------------------------------------------------------------
+15/143 train_loss: 0.082896, train_acc: 97.265625
+31/143 train_loss: 0.060318, train_acc: 98.242188
+47/143 train_loss: 0.049094, train_acc: 98.567708
+63/143 train_loss: 0.051897, train_acc: 98.535156
+79/143 train_loss: 0.052927, train_acc: 98.515625
+95/143 train_loss: 0.049623, train_acc: 98.567708
+111/143 train_loss: 0.046834, train_acc: 98.604911
+127/143 train_loss: 0.046554, train_acc: 98.535156
+End of 8 train_loss: 0.0456, train_acc: 98.6014, val_loss: 1.0449, val_acc: 75.9375, f1_score: 0.7116
+Epoch 9------------------------------------------------------------
+15/143 train_loss: 0.046018, train_acc: 98.046875
+31/143 train_loss: 0.034371, train_acc: 98.828125
+47/143 train_loss: 0.029140, train_acc: 99.088542
+63/143 train_loss: 0.026762, train_acc: 99.121094
+79/143 train_loss: 0.027796, train_acc: 99.062500
+95/143 train_loss: 0.027898, train_acc: 98.958333
+111/143 train_loss: 0.026785, train_acc: 98.995536
+127/143 train_loss: 0.027194, train_acc: 98.974609
+End of 9 train_loss: 0.0276, train_acc: 98.9510, val_loss: 1.0169, val_acc: 77.5000, f1_score: 0.7329
+Epoch 10------------------------------------------------------------
+15/143 train_loss: 0.019284, train_acc: 99.218750
+31/143 train_loss: 0.016436, train_acc: 99.414062
+47/143 train_loss: 0.013627, train_acc: 99.609375
+63/143 train_loss: 0.016061, train_acc: 99.511719
+79/143 train_loss: 0.022900, train_acc: 99.296875
+95/143 train_loss: 0.021087, train_acc: 99.414062
+111/143 train_loss: 0.021116, train_acc: 99.330357
+127/143 train_loss: 0.019288, train_acc: 99.414062
+End of 10 train_loss: 0.0189, train_acc: 99.4318, val_loss: 0.9904, val_acc: 79.0625, f1_score: 0.7451
+Epoch 11------------------------------------------------------------
+15/143 train_loss: 0.012302, train_acc: 99.609375
+31/143 train_loss: 0.010659, train_acc: 99.609375
+47/143 train_loss: 0.014126, train_acc: 99.609375
+63/143 train_loss: 0.015668, train_acc: 99.609375
+79/143 train_loss: 0.015137, train_acc: 99.687500
+95/143 train_loss: 0.017094, train_acc: 99.609375
+111/143 train_loss: 0.016122, train_acc: 99.665179
+127/143 train_loss: 0.015463, train_acc: 99.707031
+End of 11 train_loss: 0.0150, train_acc: 99.7378, val_loss: 1.0397, val_acc: 77.6562, f1_score: 0.7369
+Epoch 12------------------------------------------------------------
+15/143 train_loss: 0.011605, train_acc: 99.218750
+31/143 train_loss: 0.013171, train_acc: 99.414062
+47/143 train_loss: 0.011066, train_acc: 99.609375
+63/143 train_loss: 0.010619, train_acc: 99.707031
+79/143 train_loss: 0.010275, train_acc: 99.765625
+95/143 train_loss: 0.012618, train_acc: 99.674479
+111/143 train_loss: 0.012526, train_acc: 99.665179
+127/143 train_loss: 0.013513, train_acc: 99.658203
+End of 12 train_loss: 0.0132, train_acc: 99.6941, val_loss: 1.1662, val_acc: 78.1250, f1_score: 0.7367
+Epoch 13------------------------------------------------------------
+15/143 train_loss: 0.012942, train_acc: 99.609375
+31/143 train_loss: 0.013508, train_acc: 99.414062
+47/143 train_loss: 0.013403, train_acc: 99.479167
+63/143 train_loss: 0.016442, train_acc: 99.316406
+79/143 train_loss: 0.014973, train_acc: 99.453125
+95/143 train_loss: 0.015706, train_acc: 99.348958
+111/143 train_loss: 0.014315, train_acc: 99.441964
+127/143 train_loss: 0.015937, train_acc: 99.414062
+End of 13 train_loss: 0.0152, train_acc: 99.4755, val_loss: 1.1263, val_acc: 78.5938, f1_score: 0.7480
+Epoch 14------------------------------------------------------------
+15/143 train_loss: 0.012937, train_acc: 99.609375
+31/143 train_loss: 0.014193, train_acc: 99.414062
+47/143 train_loss: 0.031379, train_acc: 98.828125
+63/143 train_loss: 0.034604, train_acc: 98.828125
+79/143 train_loss: 0.032706, train_acc: 98.828125
+95/143 train_loss: 0.028711, train_acc: 98.958333
+111/143 train_loss: 0.026715, train_acc: 99.051339
+127/143 train_loss: 0.029071, train_acc: 99.023438
+End of 14 train_loss: 0.0295, train_acc: 99.0822, val_loss: 1.2167, val_acc: 75.4688, f1_score: 0.7113
+Epoch 15------------------------------------------------------------
+15/143 train_loss: 0.040289, train_acc: 99.218750
+31/143 train_loss: 0.025298, train_acc: 99.609375
+47/143 train_loss: 0.019091, train_acc: 99.739583
+63/143 train_loss: 0.018105, train_acc: 99.707031
+79/143 train_loss: 0.017367, train_acc: 99.687500
+95/143 train_loss: 0.018358, train_acc: 99.544271
+111/143 train_loss: 0.017124, train_acc: 99.609375
+127/143 train_loss: 0.020933, train_acc: 99.462891
+End of 15 train_loss: 0.0231, train_acc: 99.3444, val_loss: 1.1932, val_acc: 77.0312, f1_score: 0.7268
+Training ended with 15 epochs.
+Loading best checkpoint from  saved_models/Laptops/train/best_model.pt
+Evaluation Results: test_loss:0.47795572876930237, test_acc:82.34375, test_f1:0.7894271962549304

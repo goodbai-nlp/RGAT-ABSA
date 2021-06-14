@@ -9,6 +9,7 @@ class Vocab(object):
         self.itos = list(specials)
         for tok in specials:
             del counter[tok]
+
         # sort by frequency, then alphabetically
         words_and_frequencies = sorted(counter.items(), key=lambda tup: tup[0])
         words_and_frequencies.sort(key=lambda tup: tup[1], reverse=True)
