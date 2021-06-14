@@ -43,7 +43,7 @@ post_size: 168
 rnn_dropout: 0.1
 rnn_hidden: 50
 rnn_layers: 1
-save_dir: saved_models
+save_dir: saved_models/Laptops/train
 seed: 48
 shuffle: True
 tok_size: 3525
@@ -58,7 +58,6 @@ vocab_dir: ../dataset/Biaffine/glove/Laptops
 20 batches created for ../dataset/Biaffine/glove/Laptops/test.json
 /mnt/data2/xfbai/Anaconda/envs/py36torch1.2new/lib/python3.6/site-packages/torch/nn/modules/rnn.py:51: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.1 and num_layers=1
   "num_layers={}".format(dropout, num_layers))
-Total parameters: 1494203
 RGATABSA(
   (enc): ABSAEncoder(
     (emb): Embedding(3525, 300, padding_idx=0)
@@ -173,6 +172,7 @@ RGATABSA(
   )
   (classifier): Linear(in_features=50, out_features=3, bias=True)
 )
+Total parameters: 1494203
 Training Set: 72
 Valid Set: 20
 Test Set: 20
@@ -490,4 +490,5 @@ Epoch 60------------------------------------------------------------
 59/72 train_loss: 0.250236, train_acc: 89.791667
 End of 60 train_loss: 0.2412, train_acc: 90.2344, val_loss: 0.9430, val_acc: 75.7292, f1_score: 0.7099
 Training ended with 60 epochs.
-Evaluation Summary: test_loss:0.9125832915306091, test_acc:78.02083333333334, test_f1:0.7399718710997885
+Loading best checkpoints from saved_models/Laptops/train/best_checkpoint.pt
+Evaluation Results: test_loss:0.9125832915306091, test_acc:78.02083333333334, test_f1:0.7399718710997885

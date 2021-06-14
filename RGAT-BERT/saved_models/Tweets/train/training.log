@@ -1,19 +1,21 @@
 -----------  Configuration Arguments -----------
+att_dropout: 0.0
 batch_size: 16
 bert_lr: 2e-06
 bert_out_dim: 500
-data_dir: /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets
+data_dir: ../dataset/Biaffine/glove/Tweets
 dep_dim: 100
 direct: False
 hidden_dim: 768
 input_dropout: 0.1
 l2: 1e-05
+layer_dropout: 0
 log_step: 16
 loop: True
 lower: True
 lr: 1e-06
 max_len: 90
-model: SGAT
+model: RGAT
 num_class: 3
 num_epoch: 15
 num_layer: 2
@@ -24,19 +26,19 @@ post_dim: 0
 reset_pooling: True
 save_dir: saved_models/Tweets/train
 seed: 44
-vocab_dir: /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets
+vocab_dir: ../dataset/Biaffine/glove/Tweets
 ------------------------------------------------
 Loading vocab...
-Loading vocab from: /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets/vocab_tok.vocab
-Loading vocab from: /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets/vocab_post.vocab
-Loading vocab from: /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets/vocab_pos.vocab
-Loading vocab from: /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets/vocab_dep.vocab
-Loading vocab from: /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets/vocab_pol.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_tok.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_post.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_pos.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_dep.vocab
+Loading vocab from: ../dataset/Biaffine/glove/Tweets/vocab_pol.vocab
 token_vocab: 13146, post_vocab: 94, pos_vocab: 47, dep_vocab: 35, pol_vocab: 3
-Loading data from /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets with batch size 16...
-379 batches created for /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets/train.json
-43 batches created for /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets/valid.json
-43 batches created for /mnt/data2/xfbai/mywork/ABSA-bai/RGAT-ABSA/dataset/Biaffine/glove/Tweets/test.json
+Loading data from ../dataset/Biaffine/glove/Tweets with batch size 16...
+379 batches created for ../dataset/Biaffine/glove/Tweets/train.json
+43 batches created for ../dataset/Biaffine/glove/Tweets/valid.json
+43 batches created for ../dataset/Biaffine/glove/Tweets/test.json
 RGATABSA(
   (enc): ABSAEncoder(
     (dep_emb): Embedding(35, 100, padding_idx=0)
@@ -780,6 +782,5 @@ Epoch 15------------------------------------------------------------
 367/379 train_loss: 0.226217, train_acc: 92.068614
 End of 15 train_loss: 0.2248, train_acc: 92.1504, val_loss: 0.8217, val_acc: 74.3895, f1_score: 0.7371
 Training ended with 15 epochs.
-Training Summary: best_val_epoch:11, valid_loss:0.6745818257331848, valid_acc:76.27906976744185, valid_f1:0.7541232972128241
-Loading best checkpoint ... 
-Evaluation Summary: test_loss:0.6745818257331848, test_acc:76.27906976744185, test_f1:0.7541232972128241
+Loading best checkpoint from  saved_models/Tweets/train/best_model.pt
+Evaluation Results: test_loss:0.6745818257331848, test_acc:76.27906976744185, test_f1:0.7541232972128241

@@ -15,7 +15,7 @@ if [ ! -d "$exp_path" ]; then
   mkdir -p "$exp_path"
 fi
 
-CUDA_VISIBLE_DEVICES=0 python -u bert_train.py \
+CUDA_VISIBLE_DEVICES=1 python -u bert_train.py \
 	--lr 1e-5 \
 	--bert_lr 2e-5 \
 	--input_dropout 0.1 \

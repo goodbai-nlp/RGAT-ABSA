@@ -3,7 +3,7 @@
 source_dir=../dataset
 save_dir=saved_models
 
-exp_setting=training
+exp_setting=train
 exp_dataset=Biaffine/glove/MAMS
 
 ############# MAMS acc:84.52 f1:83.74 #################
@@ -12,7 +12,7 @@ exp_path=$save_dir/MAMS/$exp_setting
 if [ ! -d "$exp_path" ]; then
   mkdir -p "$exp_path"
 fi
-CUDA_VISIBLE_DEVICES=0 python3 -u bert_train.py \
+CUDA_VISIBLE_DEVICES=1 python3 -u bert_train.py \
 	--lr 1e-5 \
 	--bert_lr 2e-5 \
 	--input_dropout 0.1 \

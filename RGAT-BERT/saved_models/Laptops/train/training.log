@@ -398,23 +398,3 @@ RGATABSA(
 Training Set: 143
 Valid/Test Set: 40
 Epoch 1------------------------------------------------------------
-15/143 train_loss: 1.060150, train_acc: 44.140625
-31/143 train_loss: 1.037527, train_acc: 48.046875
-47/143 train_loss: 0.979031, train_acc: 52.994792
-63/143 train_loss: 0.915527, train_acc: 57.421875
-79/143 train_loss: 0.853600, train_acc: 61.250000
-95/143 train_loss: 0.811662, train_acc: 63.541667
-111/143 train_loss: 0.784211, train_acc: 65.401786
-127/143 train_loss: 0.770422, train_acc: 66.259766
-End of 1 train_loss: 0.7587, train_acc: 67.0804, val_loss: 0.5268, val_acc: 78.4375, f1_score: 0.7434
-new best model saved.
-Epoch 2------------------------------------------------------------
-15/143 train_loss: 0.524951, train_acc: 77.343750
-31/143 train_loss: 0.535316, train_acc: 78.710938
-47/143 train_loss: 0.528193, train_acc: 78.776042
-63/143 train_loss: 0.509172, train_acc: 79.492188
-79/143 train_loss: 0.481992, train_acc: 80.703125
-95/143 train_loss: 0.456820, train_acc: 81.966146
-111/143 train_loss: 0.448880, train_acc: 82.142857
-127/143 train_loss: 0.438685, train_acc: 82.421875
-End of 2 train_loss: 0.4337, train_acc: 82.5787, val_loss: 0.4780, val_acc: 82.3438, f1_score: 0.7894

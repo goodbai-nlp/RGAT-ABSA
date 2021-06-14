@@ -3,7 +3,7 @@
 source_dir=../dataset
 save_dir=saved_models
 
-exp_setting=train3
+exp_setting=train
 exp_dataset=Biaffine/glove/Restaurants
 
 ############# Restaurants acc:86.68 f1:80.92 #################
@@ -13,7 +13,7 @@ if [ ! -d "$exp_path" ]; then
   mkdir -p "$exp_path"
 fi
 
-CUDA_VISIBLE_DEVICES=0 python3 -u bert_train.py \
+CUDA_VISIBLE_DEVICES=1 python3 -u bert_train.py \
 	--lr 1e-5 \
 	--bert_lr 2e-5 \
 	--input_dropout 0.1 \
@@ -29,4 +29,4 @@ CUDA_VISIBLE_DEVICES=0 python3 -u bert_train.py \
 	--seed 33 \
 	--output_merge "gate" \
 	--reset_pool \
-	--num_epoch 10 2>&1 | tee $exp_path/$exp_setting.log
+	--num_epoch 10 2>&1 | tee $exp_path/training.log

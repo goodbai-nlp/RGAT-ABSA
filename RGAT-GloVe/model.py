@@ -71,7 +71,9 @@ class ABSAEncoder(nn.Module):
 
         if self.args.output_merge.lower() != "none":
             self.inp_map = torch.nn.Linear(args.hidden_dim * 2, args.hidden_dim)
-        if self.args.output_merge.lower() == "attn":
+        if self.args.output_merge.lower() == "none":
+            pass
+        elif self.args.output_merge.lower() == "attn":
             self.out_attn_map = torch.nn.Linear(args.hidden_dim * 2, 1)
         elif self.args.output_merge.lower() == "gate":
             self.out_gate_map = torch.nn.Linear(args.hidden_dim * 2, args.hidden_dim)
