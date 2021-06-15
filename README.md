@@ -46,6 +46,13 @@ conda env create -f requirements.yaml
 
 4. The saved model and training logs will be stored at directory `saved_models`  
 
+
+5. Evaluating trained models (optional)
+
+   ``` 
+   bash eval.sh path/to/check_point path/to/dataset
+   bash eval-BERT.sh path/to/check_point path/to/dataset
+   ```
 ## Results
 
 

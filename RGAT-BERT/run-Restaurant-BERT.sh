@@ -3,11 +3,7 @@
 source_dir=../dataset
 save_dir=saved_models
 
-<<<<<<< HEAD
 exp_setting=train
-=======
-exp_setting=train3
->>>>>>> 6ccca5c6bac773bc2dcb8ca4a2d2af99b19ad9d9
 exp_dataset=Biaffine/glove/Restaurants
 
 ############# Restaurants acc:86.68 f1:80.92 #################
@@ -33,8 +29,4 @@ CUDA_VISIBLE_DEVICES=0 python3 -u bert_train.py \
 	--seed 33 \
 	--output_merge "gate" \
 	--reset_pool \
-<<<<<<< HEAD
 	--num_epoch 10 2>&1 | tee $exp_path/training.log
-=======
-	--num_epoch 10 2>&1 | tee $exp_path/$exp_setting.log
->>>>>>> 6ccca5c6bac773bc2dcb8ca4a2d2af99b19ad9d9
