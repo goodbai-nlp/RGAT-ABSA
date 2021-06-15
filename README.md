@@ -37,6 +37,7 @@ conda env create -f requirements.yaml
    ```
 
 3. Training
+
    Go to Corresponding directory and run scripts:
 
    ``` 
