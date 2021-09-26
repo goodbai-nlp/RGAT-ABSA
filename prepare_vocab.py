@@ -59,7 +59,7 @@ def main():
     print("building vocab...")
     token_vocab = Vocab(token_counter, specials=["<pad>", "<unk>"])
     pos_vocab = Vocab(pos_counter, specials=["<pad>", "<unk>"])
-    dep_vocab = Vocab(dep_counter, specials=["<pad>", "<self>", "<unk>"])
+    dep_vocab = Vocab(dep_counter, specials=["<pad>", "<unk>", "<self>"])
     post_vocab = Vocab(post_counter, specials=["<pad>", "<unk>"])
     pol_vocab = Vocab(pol_counter, specials=[])
     print(
